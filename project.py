@@ -6,7 +6,7 @@ import requests
 import tkinter as tk
 from tkinter import messagebox
 
-GEODB_KEY = ""
+GEODB_KEY = "1b97151aeamshcf5fbd1af73bedbp1535c6jsn90121c4a713a"
 WEATHER_KEY = ""
 EXCHANGE_KEY = ""
 
@@ -31,4 +31,22 @@ def get_country_info(country):
         "country": data["name"],
         "code": data["code"],
         "capital": data.get("capital", "N/A")
+    }
+
+
+def get_weather(city):
+
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_KEY}&units=metric"
+
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        return None
+
+    data = response.json()
+
+    return {
+        "temp": data["main"]["temp"],
+        "humidity": data["main"]["humidity"],
+        "desc": data["weather"][0]["description"]
     }
