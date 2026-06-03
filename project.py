@@ -7,7 +7,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 GEODB_KEY = "1b97151aeamshcf5fbd1af73bedbp1535c6jsn90121c4a713a"
-WEATHER_KEY = ""
+WEATHER_KEY = "cc96d68c73cf139304a381905f85826e"
 EXCHANGE_KEY = ""
 
 
