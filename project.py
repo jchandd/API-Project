@@ -50,3 +50,16 @@ def get_weather(city):
         "humidity": data["main"]["humidity"],
         "desc": data["weather"][0]["description"]
     }
+
+def get_exchange():
+
+    url = f"https://v6.exchangerate-api.com/v6/{EXCHANGE_KEY}/latest/CAD"
+
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        return None
+
+    data = response.json()
+
+    return data["conversion_rates"]["USD"]
