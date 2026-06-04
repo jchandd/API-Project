@@ -99,3 +99,13 @@ def search():
         f"Description: {weather_data['desc']}\n\n"
         f"1 CAD = {exchange_rate} USD"
     )
+
+
+window = tk.Tk()
+window.title("Vacation Destination Finder")
+window.geometry("400x400")
+
+tk.Label(window, text="Enter Country:").pack()
+
+entry = tk.Entry(window)
+entry.pack()
