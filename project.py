@@ -8,7 +8,7 @@ from tkinter import messagebox
 
 GEODB_KEY = "1b97151aeamshcf5fbd1af73bedbp1535c6jsn90121c4a713a"
 WEATHER_KEY = "cc96d68c73cf139304a381905f85826e"
-EXCHANGE_KEY = ""
+EXCHANGE_KEY = "939b63a0f18cd04f0384f201"
 
 
 def get_country_info(country):
@@ -109,3 +109,11 @@ tk.Label(window, text="Enter Country:").pack()
 
 entry = tk.Entry(window)
 entry.pack()
+
+tk.Button(window, text="Search", command=search).pack(pady=10)
+
+result_text = tk.StringVar() # Create a StringVar to hold the result text
+
+tk.Label(window, textvariable=result_text, justify="left").pack(pady=10) 
+
+window.mainloop()
