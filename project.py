@@ -63,3 +63,39 @@ def get_exchange():
     data = response.json()
 
     return data["conversion_rates"]["USD"]
+
+
+def search():
+
+    country = entry.get()
+
+    if not country:
+        messagebox.showerror("Error", "Please enter a country")
+        return
+
+    country_data = get_country_info(country)
+
+    if not country_data:
+        messagebox.showerror("Error", "Country not found")
+        return
+
+    weather_data = get_weather(country_data["capital"])
+
+    if not weather_data:
+        messagebox.showerror("Error", "Weather not found")
+        return
+    
+    
+    exchange_rate = get_exchange() # Get the exchange rate from CAD to USD
+
+
+    result_text.set(
+        f"Country: {country_data['country']}\n"
+        f"Code: {country_data['code']}\n"
+        f"Capital: {country_data['capital']}\n\n"
+        f"Weather:\n"
+        f"Temp: {weather_data['temp']}°C\n"
+        f"Humidity: {weather_data['humidity']}%\n"
+        f"Description: {weather_data['desc']}\n\n"
+        f"1 CAD = {exchange_rate} USD"
+    )
