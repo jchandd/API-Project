@@ -66,6 +66,20 @@ def get_exchange():
 
     return data["conversion_rates"]["USD"]
 
+# GUI Application
+window = tk.Tk()
+window.title("Country Info App")
+
+entry = tk.Entry(window)
+entry.pack()
+
+tk.Button(window, text="Search", command=search).pack(pady=10)
+
+result_text = tk.StringVar() # Create a StringVar to hold the result text
+
+tk.Label(window, textvariable=result_text, justify="left").pack(pady=10) 
+
+window.mainloop()
 
 def search():
 
